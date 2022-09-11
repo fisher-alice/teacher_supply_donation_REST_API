@@ -13,4 +13,4 @@ A teacher has a list of supplies needed that will be used for all her students. 
 Within the application, a student or supply cannot be created without being related to a teacher.
 The unique identifier used to relate the student and supply to the teacher is the teacher’s auth0 number named teacher_autho. This teacher_autho is shared among all 3 entities and is provided by the JWT token of the user (teacher).
 
-View the data model and API specification for more detailed information.
+View the data model and API specification [doc](https://github.com/fisher-alice/teacher_supply_donation_REST_API/blob/main/Data%20model%20and%20API%20specification.pdf) for more detailed information.
