@@ -1,0 +1,2491 @@
+{
+	"info": {
+		"_postman_id": "aa1ceb37-5042-41fd-b11d-887ad3109f56",
+		"name": "final-project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16680106"
+	},
+	"item": [
+		{
+			"name": "autho teacher1 wallace",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"grant_type\": \"password\",\r\n    \"username\": \"wallace@cheese.com\",\r\n    \"password\": \"cheese1234!\",\r\n    \"client_id\": \"M5IErYooQoNeGsQqi3XfYUQKQDhDxm6T\",\r\n    \"client_secret\": \"7vzIHFWw042vkEeEn1mn8-xBrS8QUyzIWG3cL0sr0fI_ou9RThO-T2BWaoV8U-6r\"\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cs493-spring-2022.us.auth0.com/oauth/token",
+					"protocol": "https",
+					"host": [
+						"cs493-spring-2022",
+						"us",
+						"auth0",
+						"com"
+					],
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "autho teacher2 John",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"grant_type\": \"password\",\r\n    \"username\": \"john@gmail.com\",\r\n    \"password\": \"Password1!\",\r\n    \"client_id\": \"M5IErYooQoNeGsQqi3XfYUQKQDhDxm6T\",\r\n    \"client_secret\": \"7vzIHFWw042vkEeEn1mn8-xBrS8QUyzIWG3cL0sr0fI_ou9RThO-T2BWaoV8U-6r\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cs493-spring-2022.us.auth0.com/oauth/token",
+					"protocol": "https",
+					"host": [
+						"cs493-spring-2022",
+						"us",
+						"auth0",
+						"com"
+					],
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "autho user - no tchr account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"grant_type\": \"password\",\r\n    \"username\": \"student@school.edu\",\r\n    \"password\": \"Password1!\",\r\n    \"client_id\": \"M5IErYooQoNeGsQqi3XfYUQKQDhDxm6T\",\r\n    \"client_secret\": \"7vzIHFWw042vkEeEn1mn8-xBrS8QUyzIWG3cL0sr0fI_ou9RThO-T2BWaoV8U-6r\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cs493-spring-2022.us.auth0.com/oauth/token",
+					"protocol": "https",
+					"host": [
+						"cs493-spring-2022",
+						"us",
+						"auth0",
+						"com"
+					],
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post teacher1 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"teacher1_id\", pm.response.json()[\"id\"]);\r",
+							"\r",
+							"pm.test(\"201 status code\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n \"name\": \"wallace\",\r\n \"email\": \"wallace@cheese.com\",\r\n \"teacher_autho\": \"auth0|627c73d9eb7d06006f76a973\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/teachers",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"teachers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post teacher2 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"teacher2_id\", pm.response.json()[\"id\"]);\r",
+							"\r",
+							"pm.test(\"201 status code\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n \"name\": \"John\",\r\n \"email\": \"john@gmail.com\",\r\n \"teacher_autho\": \"auth0|62996621dc4dea0068d860aa\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/teachers",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"teachers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put teacher 405",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"405 status code\", function () {\r",
+							"    pm.response.to.have.status(405);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n \"name\": \"John\",\r\n \"email\": \"john@gmail.com\",\r\n \"teacher_autho\": \"auth0|62996621dc4dea0068d860aa\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/teachers",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"teachers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all teachers 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/teachers",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"teachers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get teacher 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/teachers/{{teacher1_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"teachers",
+						"{{teacher1_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get teacher 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"404 status code\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/teachers/123",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"teachers",
+						"123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post supply1 201  - correct authorization teacher1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"supply1_id\", pm.response.json()[\"id\"]);\r",
+							"\r",
+							"pm.test(\"201 status code\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n\r\n \"description\": \"scissors\",\r\n \"num_needed\": 10\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/supplies",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"supplies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post supply2 201 - correct authorization teacher1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"supply2_id\", pm.response.json()[\"id\"]);\r",
+							"\r",
+							"pm.test(\"201 status code\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n\r\n \"description\": \"dry erase markers\",\r\n \"num_needed\": 25\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/supplies",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"supplies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post supply 400 - no teacher account",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"supply2_id\", pm.response.json()[\"id\"]);\r",
+							"\r",
+							"pm.test(\"201 status code\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImdBV2pmQm1pNWdzOHFRREFvUDJCXyJ9.eyJuaWNrbmFtZSI6InN0dWRlbnQiLCJuYW1lIjoic3R1ZGVudEBzY2hvb2wuZWR1IiwicGljdHVyZSI6Imh0dHBzOi8vcy5ncmF2YXRhci5jb20vYXZhdGFyL2M2ZjhjZTdkMTRiMjRjZmJhNGNjMmMzYThmNjBhMjA5P3M9NDgwJnI9cGcmZD1odHRwcyUzQSUyRiUyRmNkbi5hdXRoMC5jb20lMkZhdmF0YXJzJTJGc3QucG5nIiwidXBkYXRlZF9hdCI6IjIwMjItMDYtMDZUMDQ6NDk6NTcuMTA5WiIsImVtYWlsIjoic3R1ZGVudEBzY2hvb2wuZWR1IiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJpc3MiOiJodHRwczovL2NzNDkzLXNwcmluZy0yMDIyLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2MjdjN2JlNmVlNDEwOTAwNjk3ZTZhMGYiLCJhdWQiOiJNNUlFcllvb1FvTmVHc1FxaTNYZllVUUtRRGhEeG02VCIsImlhdCI6MTY1NDQ5MDk5NywiZXhwIjoxNjU0NTI2OTk3fQ.i6arQWF9LIDYnBUK9JVo761j9rPXXVSd0SVdmOclq1DAkRv7_rTyiUnKpb9I592z0q_W8zsLAq5oMM6wpVyvLK6KKtDYNwBPvz2YP_3vJYB-_Mc4Y0OMiy5YXOV_jB53x63KLEp7oM8DBEuFZt8b6GvodknZXZBboAcLNboJXqSWqosB8NNlD0yP4pXdwUc0EBuKiQ_B3Ka_0KGy6QiPhbGqIyIl914G-haJk4tVsf6qdLAqPBC7R3XxllcWWU35hQjt9iEk_pbUlJSpIgsQNEXtXt3UNHUjT97GabMIycA3hljLbnTLsOT1olxt9s8277agGEDPWS4x9mAKTWuYyA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n\r\n \"description\": \"dry erase markers\",\r\n \"num_needed\": 25\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/supplies",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"supplies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post supply 400 invalid data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"400 status code\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n \"description\": \"tissue box\",\r\n \"num_needed\": -2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/supplies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"supplies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post supply - 401 without autho",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"401 status code\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n \"description\": \"tissue box\",\r\n \"num_needed\": -2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/supplies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"supplies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post supply 406  - not acceptable",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"406 status code\", function () {\r",
+							"    pm.response.to.have.status(406);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n\r\n \"description\": \"scissors\",\r\n \"num_needed\": 10\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/supplies",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"supplies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EDIT - put supply 403 invalid autho",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"403 status code\", function () {\r",
+							"    pm.response.to.have.status(403);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"teacher_autho\": \"auth0|627c73d9eb7d06006f76a973\",\r\n    \"description\": \"tissue boxes\",\r\n    \"num_needed\": 10\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/supplies/{{supply1_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"supplies",
+						"{{supply1_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EDIT - put supply - 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"teacher_autho\": \"auth0|627c73d9eb7d06006f76a973\",\r\n    \"description\": \"tissue boxes\",\r\n    \"num_needed\": 10\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/supplies/{{supply1_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"supplies",
+						"{{supply1_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EDIT - patch supply - 403 not authorized",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"403 status code\", function () {\r",
+							"    pm.response.to.have.status(403);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n\r\n    \"description\": \"tissue boxes\",\r\n    \"num_needed\": 9,\r\n    \"num_supplied\": 1,\r\n    \"students\": {\"student_id\": 5705491514654720}\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/supplies/{{supply1_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"supplies",
+						"{{supply1_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EDIT - patch supply - 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"description\": \"tissue boxes\",\r\n    \"num_needed\": 19\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/supplies/{{supply1_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"supplies",
+						"{{supply1_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all supplies - 200 - autho",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/supplies",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"supplies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all supplies - 200  no supplies",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/supplies",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"supplies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get supply 401 unauthorized",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"401 status code\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/supplies/{{supply1_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"supplies",
+						"{{supply1_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get supply 403 invalid autho",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"403 status code\", function () {\r",
+							"    pm.response.to.have.status(403);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/supplies/{{supply1_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"supplies",
+						"{{supply1_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get supply 404 not found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"404 status code\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/supplies/123",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"supplies",
+						"123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete supply - 404 supply does not exist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"404 status code\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/supplies/123",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"supplies",
+						"123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete supply2 - 403 invalid autho",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"403 status code\", function () {\r",
+							"    pm.response.to.have.status(403);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/supplies/{{supply2_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"supplies",
+						"{{supply2_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete supply2 - 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"204 status code\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/supplies/{{supply2_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"supplies",
+						"{{supply2_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post student1 201- correct authorization",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"student1_id\", pm.response.json()[\"id\"]);\r",
+							"\r",
+							"pm.test(\"201 status code\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n  \"teacher_autho\": \"auth0|627c73d9eb7d06006f76a973\",\r\n  \"first_name\": \"Mia\",\r\n  \"last_name\": \"Fisher\",\r\n  \"class_period\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/students",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post student2 201 - correct authorization",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"student2_id\", pm.response.json()[\"id\"]);\r",
+							"\r",
+							"pm.test(\"201 status code\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n\r\n  \"first_name\": \"Kym\",\r\n  \"last_name\": \"Riggins\",\r\n  \"class_period\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/students",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post student3 201 - correct authorization",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"student3_id\", pm.response.json()[\"id\"]);\r",
+							"\r",
+							"pm.test(\"201 status code\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n  \"first_name\": \"Mia\",\r\n  \"last_name\": \"Fisher\",\r\n  \"class_period\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/students",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post student4 201 - correct authorization",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"student4_id\", pm.response.json()[\"id\"]);\r",
+							"\r",
+							"pm.test(\"201 status code\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n  \"first_name\": \"Mia\",\r\n  \"last_name\": \"Fisher\",\r\n  \"class_period\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/students",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post student5 201 - correct authorization",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"student5_id\", pm.response.json()[\"id\"]);\r",
+							"\r",
+							"pm.test(\"201 status code\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n  \"first_name\": \"Mia\",\r\n  \"last_name\": \"Fisher\",\r\n  \"class_period\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/students",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post student6  201 - correct authorization",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"student6_id\", pm.response.json()[\"id\"]);\r",
+							"\r",
+							"pm.test(\"201 status code\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n  \"first_name\": \"Mia\",\r\n  \"last_name\": \"Fisher\",\r\n  \"class_period\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/students",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all students - 200  authorized",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/students",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all students - 200 no students",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/students",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get student 401 - no autho",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"401 status code\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/students/{{student1_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"students",
+						"{{student1_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get student 403 invalid autho",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"403 status code\", function () {\r",
+							"    pm.response.to.have.status(403);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2-fisher}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/students/{{student1_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"students",
+						"{{student1_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EDIT - put student - 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"class_period\": 2,\r\n    \"first_name\": \"Alice\",\r\n    \"last_name\": \"Fisher\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/students/{{student1_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"students",
+						"{{student1_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EDIT - put student - 400 - missing attribute",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"400 status code\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"class_period\": 2,\r\n    \"first_name\": \"Alice\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/students/{{student1_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"students",
+						"{{student1_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EDIT - patch student - 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n\r\n    \"first_name\": \"Kym\"\r\n\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/students/{{student1_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"students",
+						"{{student1_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete student1 - 403 not authorized",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"403 status code\", function () {\r",
+							"    pm.response.to.have.status(403);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/students/{{student1_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"students",
+						"{{student1_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete student2 - 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"204 status code\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/students/{{student2_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"students",
+						"{{student2_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete student3 - 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"204 status code\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/students/{{student3_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"students",
+						"{{student3_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete student4 - 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"204 status code\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/students/{{student4_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"students",
+						"{{student4_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete student5 - 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"204 status code\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/students/{{student5_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"students",
+						"{{student5_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete student6 - 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"204 status code\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/students/{{student6_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"students",
+						"{{student6_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all students - 200 authorized",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/students",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT - add student-supply 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/supplies/{{supply1_id}}/students/{{student1_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"supplies",
+						"{{supply1_id}}",
+						"students",
+						"{{student1_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get supply1 200 after add relationship",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/supplies/{{supply1_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"supplies",
+						"{{supply1_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get student 200 after add relationship",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/students/{{student1_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"students",
+						"{{student1_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE - remove student-supply 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"204 status code\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/supplies/{{supply1_id}}/students/{{student1_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"supplies",
+						"{{supply1_id}}",
+						"students",
+						"{{student1_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get supply1 200 after remove relationship",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/supplies/{{supply1_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"supplies",
+						"{{supply1_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get student 200 remove relationship",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/students/{{student1_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"students",
+						"{{student1_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete student1 - 204",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/students/{{student1_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"students",
+						"{{student1_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete supply1 - 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"204 status code\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/supplies/{{supply1_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"supplies",
+						"{{supply1_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete teacher1 204",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/teachers/{{teacher1_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"teachers",
+						"{{teacher1_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete teacher2 204",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/teachers/{{teacher2_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"teachers",
+						"{{teacher2_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete teacher testing",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/teachers/5735151820603392",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"teachers",
+						"5735151820603392"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get app",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}",
+					"host": [
+						"{{app_url}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
