@@ -1,9 +1,6 @@
 # teacher_supply_donation_REST_API
 
-This application was completed as a final project in the Oregon State University CS 493 course – Cloud Application Development. It is deployed on Google Cloud Platorm at: 
-https://final-project-fisheali.uc.r.appspot.com
-
-I recommend using an incognito window when you log in or create an account. 
+This application was completed as a final project in the Oregon State University CS 493 course – Cloud Application Development. 
 
 This application models a teacher, her students, and the supplies that she needs at the beginning of the school year. The TEACHER is the user, and the two non-user entities are STUDENT and SUPPLY.
 The reason I am modeling this scenario is that teachers on average spend about $1000 from their personal funds to pay for classroom supplies. I would like to implement an application so that teachers can more easily manage the donation of supplies from her students. 
